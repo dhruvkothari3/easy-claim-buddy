@@ -57,11 +57,11 @@ export function Header() {
         </div>
         
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <Link to="/agent/login">
-            <Button variant="outline" size="sm">
-              Agent Portal
-            </Button>
-          </Link>
+          <Button asChild variant="outline" size="sm">
+            <a href="tel:+911800123456">
+              Call Support
+            </a>
+          </Button>
         </div>
       </nav>
 
@@ -103,15 +103,11 @@ export function Header() {
                   ))}
                 </div>
                 <div className="py-6">
-                  <Link
-                    to="/agent/login"
-                    className="block w-full"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <Button variant="outline" size="sm" className="w-full">
-                      Agent Portal
-                    </Button>
-                  </Link>
+                  <Button asChild variant="outline" size="sm" className="w-full">
+                    <a href="tel:+911800123456">
+                      Call Support
+                    </a>
+                  </Button>
                 </div>
               </div>
             </div>

@@ -8,7 +8,7 @@ import {
   Clock, 
   Users, 
   CheckCircle, 
-  ArrowRight, 
+  Phone, 
   Star,
   FileCheck,
   Headphones,
@@ -109,15 +109,17 @@ export default function Landing() {
                 in just 24-48 hours with expert guidance every step of the way.
               </p>
               <div className="mt-10 flex items-center gap-x-6">
-                <Button variant="hero" size="xl">
-                  Start Your Claim
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button asChild variant="hero" size="xl">
+                  <a href="tel:+911800123456">
+                    Call Now for Assistance
+                    <Phone className="ml-2 h-5 w-5" />
+                  </a>
                 </Button>
-                <Link to="/services">
-                  <Button variant="outline" size="lg">
-                    Learn More
-                  </Button>
-                </Link>
+                <Button asChild variant="outline" size="lg">
+                  <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer">
+                    WhatsApp Support
+                  </a>
+                </Button>
               </div>
               
               {/* Stats */}
@@ -269,12 +271,14 @@ export default function Landing() {
               reliable insurance claim processing.
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
-              <Button variant="secondary" size="xl">
-                Get Started Now
+              <Button asChild variant="secondary" size="xl">
+                <a href="tel:+911800123456">
+                  Call Now
+                </a>
               </Button>
-              <Link to="/contact" className="text-sm font-semibold leading-6 text-primary-foreground">
-                Contact Support <span aria-hidden="true">→</span>
-              </Link>
+              <a href="mailto:support@easyclaims.in" className="text-sm font-semibold leading-6 text-primary-foreground">
+                Email Support <span aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
         </div>

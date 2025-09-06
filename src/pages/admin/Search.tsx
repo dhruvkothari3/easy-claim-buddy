@@ -12,7 +12,7 @@ import { SearchBy } from '@/types';
 import { api } from '@/lib/api';
 import { useToast } from '@/hooks/use-toast';
 
-export default function AgentSearch() {
+export default function AdminSearch() {
   const [searchBy, setSearchBy] = useState<SearchBy>('id');
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<any[]>([]);
@@ -252,7 +252,7 @@ export default function AgentSearch() {
                             <p className="text-sm text-muted-foreground">{customer.city || 'N/A'}</p>
                           </div>
                           <div>
-                            <Link to={`/agent/customer/${customer.id}`}>
+                            <Link to={`/admin/customer/${customer.id}`}>
                               <Button variant="outline" size="sm">
                                 <ExternalLink className="w-4 h-4 mr-2" />
                                 View Plans

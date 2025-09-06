@@ -1,38 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { 
   Phone, 
   Mail, 
   MapPin, 
   Clock, 
-  MessageCircle,
-  Send
+  MessageCircle
 } from 'lucide-react';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Since this is frontend-only, we'll just show a success message
-    alert('Thank you for your message! We\'ll get back to you within 24 hours.');
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-  };
-
-  const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
-  };
 
   return (
     <div className="min-h-screen py-16">
@@ -63,7 +41,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Phone Support</h3>
-                    <p className="text-muted-foreground">+91 1800-123-4567</p>
+                    <a href="tel:+911800123456" className="text-primary hover:underline">
+                      +91 1800-123-4567
+                    </a>
                     <p className="text-sm text-muted-foreground">Mon-Sat, 9:00 AM - 7:00 PM</p>
                   </div>
                 </div>
@@ -74,7 +54,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">WhatsApp</h3>
-                    <p className="text-muted-foreground">+91 98765-43210</p>
+                    <a href="https://wa.me/919876543210" className="text-success hover:underline" target="_blank" rel="noopener noreferrer">
+                      +91 98765-43210
+                    </a>
                     <p className="text-sm text-muted-foreground">24/7 Available</p>
                   </div>
                 </div>
@@ -85,7 +67,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground">Email</h3>
-                    <p className="text-muted-foreground">support@easyclaims.in</p>
+                    <a href="mailto:support@easyclaims.in" className="text-primary hover:underline">
+                      support@easyclaims.in
+                    </a>
                     <p className="text-sm text-muted-foreground">Response within 2-4 hours</p>
                   </div>
                 </div>
@@ -121,80 +105,35 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* Contact Form */}
+          {/* Quick Actions */}
           <div className="lg:col-span-2">
-            <Card>
-              <CardHeader>
-                <CardTitle>Send us a Message</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Full Name</Label>
-                      <Input
-                        id="name"
-                        value={formData.name}
-                        onChange={(e) => handleInputChange('name', e.target.value)}
-                        placeholder="Enter your full name"
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email Address</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) => handleInputChange('email', e.target.value)}
-                        placeholder="your@email.com"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
-                      <Input
-                        id="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={(e) => handleInputChange('phone', e.target.value)}
-                        placeholder="+91 98765 43210"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="subject">Subject</Label>
-                      <Input
-                        id="subject"
-                        value={formData.subject}
-                        onChange={(e) => handleInputChange('subject', e.target.value)}
-                        placeholder="How can we help you?"
-                        required
-                      />
-                    </div>
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      rows={5}
-                      value={formData.message}
-                      onChange={(e) => handleInputChange('message', e.target.value)}
-                      placeholder="Please describe your question or concern in detail..."
-                      required
-                    />
-                  </div>
-
-                  <Button type="submit" size="lg" className="w-full">
-                    Send Message
-                    <Send className="w-4 h-4 ml-2" />
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
+            <div className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <Button asChild size="lg" className="h-16">
+                  <a href="tel:+911800123456" className="flex flex-col">
+                    <Phone className="w-5 h-5 mb-1" />
+                    <span>Call Now</span>
+                    <span className="text-xs opacity-90">+91 1800-123-4567</span>
+                  </a>
+                </Button>
+                
+                <Button asChild variant="success" size="lg" className="h-16">
+                  <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="flex flex-col">
+                    <MessageCircle className="w-5 h-5 mb-1" />
+                    <span>WhatsApp</span>
+                    <span className="text-xs opacity-90">Chat instantly</span>
+                  </a>
+                </Button>
+              </div>
+              
+              <Button asChild variant="outline" size="lg" className="w-full h-16">
+                <a href="mailto:support@easyclaims.in" className="flex flex-col">
+                  <Mail className="w-5 h-5 mb-1" />
+                  <span>Email Support</span>
+                  <span className="text-xs opacity-70">support@easyclaims.in</span>
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
 
@@ -207,9 +146,11 @@ export default function Contact() {
                 For urgent claims that require immediate attention (medical emergencies, accidents)
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button variant="destructive" size="lg">
-                  <Phone className="w-4 h-4 mr-2" />
-                  Emergency Helpline: +91 98765-43200
+                <Button asChild variant="destructive" size="lg">
+                  <a href="tel:+919876543200" className="flex items-center">
+                    <Phone className="w-4 h-4 mr-2" />
+                    Emergency Helpline: +91 98765-43200
+                  </a>
                 </Button>
                 <p className="text-sm text-red-600">Available 24/7</p>
               </div>

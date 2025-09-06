@@ -15,7 +15,7 @@ import {
 import { useAuth } from '@/contexts/AuthContext';
 import { useToast } from '@/hooks/use-toast';
 
-export default function AgentImport() {
+export default function AdminImport() {
   const [file, setFile] = useState<File | null>(null);
   const [isUploading, setIsUploading] = useState(false);
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -274,7 +274,7 @@ export default function AgentImport() {
                   <Button onClick={resetUpload} variant="outline">
                     Upload Another File
                   </Button>
-                  <Button onClick={() => window.location.href = '/agent/search'}>
+                  <Button onClick={() => window.location.href = '/admin/search'}>
                     Go to Search
                   </Button>
                 </div>

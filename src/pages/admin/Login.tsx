@@ -10,7 +10,7 @@ import { Shield, Eye, EyeOff } from 'lucide-react';
 import { api } from '@/lib/api';
 import { useToast } from '@/hooks/use-toast';
 
-export default function AgentLogin() {
+export default function AdminLogin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -22,7 +22,7 @@ export default function AgentLogin() {
   const location = useLocation();
   const { toast } = useToast();
 
-  const from = location.state?.from?.pathname || '/agent/search';
+  const from = location.state?.from?.pathname || '/admin/search';
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -45,7 +45,7 @@ export default function AgentLogin() {
       
       toast({
         title: "Login successful",
-        description: "Welcome to the EasyClaims agent portal.",
+        description: "Welcome to the EasyClaims admin portal.",
       });
       
       navigate(from, { replace: true });
@@ -70,9 +70,9 @@ export default function AgentLogin() {
             <Shield className="h-8 w-8 text-primary" />
             <span className="text-2xl font-bold text-primary">EasyClaims</span>
           </div>
-          <CardTitle className="text-2xl">Agent Portal</CardTitle>
+          <CardTitle className="text-2xl">Admin Portal</CardTitle>
           <CardDescription>
-            Sign in to access the claims management system
+            For company staff only. Sign in to access the customer lookup system.
           </CardDescription>
         </CardHeader>
         
@@ -89,7 +89,7 @@ export default function AgentLogin() {
               <Input
                 id="email"
                 type="email"
-                placeholder="agent@easyclaims.in"
+                placeholder="admin@easyclaims.in"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -137,8 +137,8 @@ export default function AgentLogin() {
           <div className="mt-6 p-4 bg-muted/50 rounded-lg">
             <h4 className="text-sm font-medium text-foreground mb-2">Demo Credentials</h4>
             <div className="space-y-1 text-xs text-muted-foreground">
+              <div>Staff: admin@easyclaims.in / admin123</div>
               <div>Agent: agent@easyclaims.in / password123</div>
-              <div>Admin: admin@easyclaims.in / admin123</div>
             </div>
           </div>
         </CardContent>

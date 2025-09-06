@@ -16,11 +16,11 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 
-// Agent Portal
-import AgentLogin from "./pages/agent/Login";
-import AgentSearch from "./pages/agent/Search";
-import CustomerDetail from "./pages/agent/CustomerDetail";
-import AgentImport from "./pages/agent/Import";
+// Admin Portal
+import AdminLogin from "./pages/admin/Login";
+import AdminSearch from "./pages/admin/Search";
+import CustomerDetail from "./pages/admin/CustomerDetail";
+import AdminImport from "./pages/admin/Import";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 import NotFound from "./pages/NotFound";
@@ -46,21 +46,21 @@ const App = () => (
                 <Route path="/privacy" element={<Privacy />} />
                 <Route path="/terms" element={<Terms />} />
                 
-                {/* Agent Portal */}
-                <Route path="/agent/login" element={<AgentLogin />} />
-                <Route path="/agent/search" element={
+                {/* Admin Portal */}
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/admin/search" element={
                   <ProtectedRoute>
-                    <AgentSearch />
+                    <AdminSearch />
                   </ProtectedRoute>
                 } />
-                <Route path="/agent/customer/:id" element={
+                <Route path="/admin/customer/:id" element={
                   <ProtectedRoute>
                     <CustomerDetail />
                   </ProtectedRoute>
                 } />
-                <Route path="/agent/import" element={
+                <Route path="/admin/import" element={
                   <ProtectedRoute adminOnly>
-                    <AgentImport />
+                    <AdminImport />
                   </ProtectedRoute>
                 } />
                 

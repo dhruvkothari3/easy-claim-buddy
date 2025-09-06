@@ -122,7 +122,7 @@ export default function CustomerDetail() {
           <div className="text-center py-16">
             <h2 className="text-2xl font-bold text-foreground">Customer not found</h2>
             <p className="text-muted-foreground mt-2">The customer you're looking for doesn't exist.</p>
-            <Link to="/agent/search">
+            <Link to="/admin/search">
               <Button className="mt-4">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Search
@@ -139,7 +139,7 @@ export default function CustomerDetail() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8 flex items-center gap-4">
-          <Link to="/agent/search">
+          <Link to="/admin/search">
             <Button variant="outline" size="sm">
               <ArrowLeft className="w-4 h-4 mr-2" />
               Back to Search

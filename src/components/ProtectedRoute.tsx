@@ -20,11 +20,11 @@ export default function ProtectedRoute({ children, adminOnly = false }: Protecte
   }
 
   if (!isAuthenticated) {
-    return <Navigate to="/agent/login" state={{ from: location }} replace />;
+    return <Navigate to="/admin/login" state={{ from: location }} replace />;
   }
 
   if (adminOnly && user?.role !== 'admin') {
-    return <Navigate to="/agent/search" replace />;
+    return <Navigate to="/admin/search" replace />;
   }
 
   return <>{children}</>;
